@@ -20,24 +20,24 @@ The text should say Create "blank" project to describe correctly the function of
 
 Template\Image\Bug_Project_create_blank.png
 
-<!--- Code from the console where the bug would be:
-<a href="#blank_project" data-testid="panel-link" data-qa-panel-name="blank_project" class="new-namespace-panel gl-flex gl-w-full gl-shrink-0 gl-flex-col gl-items-center gl-rounded-base gl-border-1 gl-border-solid gl-border-gray-100 gl-px-3 gl-py-6 hover:!gl-no-underline lg:gl-flex-row"><div class="new-namespace-panel-illustration gl-flex gl-shrink-0 gl-justify-center"><img aria-hidden="" src="/assets/webpack/project-create-new-sm.d02514e7.svg"></div> <div class="gl-pl-4"><h3 class="gl-text-size-h2 gl-text-inherit">
+Code from the console where the bug would be:
+`<a href="#blank_project" data-testid="panel-link" data-qa-panel-name="blank_project" class="new-namespace-panel gl-flex gl-w-full gl-shrink-0 gl-flex-col gl-items-center gl-rounded-base gl-border-1 gl-border-solid gl-border-gray-100 gl-px-3 gl-py-6 hover:!gl-no-underline lg:gl-flex-row"> <div class="new-namespace-panel-illustration gl-flex gl-shrink-0 gl-justify-center"><img aria-hidden="" src="/assets/webpack/project-create-new-sm.d02514e7.svg"></div> <div class="gl-pl-4"><h3 class="gl-text-size-h2 gl-text-inherit">`
 Create blank project
-</h3> <p class="gl-text-gray-900">
+`</h3> <p class="gl-text-gray-900">`
 Create a blank project to store your files, plan your work, and collaborate on code, among other things.
- </p></div></a> -->
+`</p></div></a>`
 
 ## Possible fixes
 
 Fix the code: Update the text string to "blank"
 Make sure the text is updated, and see if the same bug appears anywhere else in the website. If so, correct them also.
 
-<!--- Code from the console where the bug would be:
-<a href="#blank_project" data-testid="panel-link" data-qa-panel-name="blank_project" class="new-namespace-panel gl-flex gl-w-full gl-shrink-0 gl-flex-col gl-items-center gl-rounded-base gl-border-1 gl-border-solid gl-border-gray-100 gl-px-3 gl-py-6 hover:!gl-no-underline lg:gl-flex-row"><div class="new-namespace-panel-illustration gl-flex gl-shrink-0 gl-justify-center"><img aria-hidden="" src="/assets/webpack/project-create-new-sm.d02514e7.svg"></div> <div class="gl-pl-4"><h3 class="gl-text-size-h2 gl-text-inherit">
+Code from the console where the bug would be:
+`<a href="#blank_project" data-testid="panel-link" data-qa-panel-name="blank_project" class="new-namespace-panel gl-flex gl-w-full gl-shrink-0 gl-flex-col gl-items-center gl-rounded-base gl-border-1 gl-border-solid gl-border-gray-100 gl-px-3 gl-py-6 hover:!gl-no-underline lg:gl-flex-row"> <div class="new-namespace-panel-illustration gl-flex gl-shrink-0 gl-justify-center"><img aria-hidden="" src="/assets/webpack/project-create-new-sm.d02514e7.svg"></div> <div class="gl-pl-4"><h3 class="gl-text-size-h2 gl-text-inherit">`
 Create blank project
-</h3> <p class="gl-text-gray-900">
+`</h3> <p class="gl-text-gray-900">`
 Create a blank project to store your files, plan your work, and collaborate on code, among other things.
- </p></div></a> -->
+`</p></div></a>`
 
 ## Whom do you report/ Assign To/ Tags
 
