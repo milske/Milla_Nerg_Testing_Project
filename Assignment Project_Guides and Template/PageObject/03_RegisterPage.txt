@@ -1,0 +1,124 @@
+
+#******************** Settings ************************
+
+*** Settings ***
+
+Documentation	Testing the user registration functionality. Registration Test scenario with valid and invalid credentials.
+
+Pre Condition	Open Browser, Navigate to the Registration Page 
+Post Condition	Close All Browsers
+Tags 			Register, TS-2-Register (e.g. For Agile Jira project management issue reference)
+
+#******************* Common Variables ********************
+
+*** Variables ***
+
+# NOTE: Please Remove your login credential before uploading Assignments
+
+RegisterUrl = https://gitlab.com/users/sign_up
+Valid_FirstName=
+Valid_LastName=
+Valid_UserName= Tester123
+Valid_Email= test123@gmail.com
+Valid_Password= ***
+Used_Username= Tester123
+Invalid_Username= T1
+Invalid_Password= ******
+Invalid_Email= test123gmail.com
+Used_Email= test123@gmail.com
+Empty= 
+
+
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# Positive Test examples are below write test process steps for each below test case
+
+	Register user with valid registration credentials: first name, last name, username, email and password
+		Navigate To Register Page  RegisterUrl
+		Input FirstName Valid_FirstName
+		Input LastName  Valid_LastName
+    	Input Username  Valid_UserName
+		Input Email		Valid_Email
+    	Input Password  Valid_Password
+    	Submit Registration Form
+    	Verify Page should enter Home page  
+
+
+# Negative Test examples keywords are below write test process steps for each below test case 
+	
+	Register User with Existing Username
+		Navigate To Register Page RegisterUrl
+		Input FirstName 	Valid_FirstName 
+		Input LastName 		Valid_LastName
+		Input Username 		Used_Username
+		Input Email 		Valid_Email
+		Input Password 		Valid_Password
+		Submit Registration Form
+		Verify that Error message shows "Username is already taken"
+
+	Register User with Existing Email
+		Navigate To Register Page RegisterUrl
+		Input FirstName 	Valid_FirstName 
+		Input LastName 		Valid_LastName
+		Input Username 		Valid_Username
+		Input Email 		Used_Email
+		Input Password 		Valid_Password
+		Submit Registration Form
+		Verify that Error message shows "Email has already been taken"
+
+	Register User with Invalid Email Format
+		Navigate To Register Page RegisterUrl
+		Input FirstName 	Valid_FirstName 
+		Input LastName 		Valid_LastName
+		Input Username 		Valid_Username
+		Input Email 		Invalid_Email
+		Input Password 		Valid_Password
+		Submit Registration Form
+		Verify that Error message shows "Please provide a valid email address."
+
+	Register User with Empty Fields
+		Navigate To Register Page RegisterUrl
+		Input FirstName 	Empty
+		Input LastName 		Empty
+		Input Username 		Empty
+		Input Email 		Empty
+		Input Password 		Empty
+		Submit Registration Form
+		Verify Page Should Contain Error message "This field is required"
+
+	Register User Without Completing CAPTCHA
+		Navigate To Register Page RegisterUrl
+		Input FirstName 	Valid_FirstName 
+		Input LastName 		Valid_LastName
+		Input Username 		Valid_Username
+		Input Email 		Valid_Email
+		Input Password 		Valid_Password
+		Skip CAPTCHA Verification
+		Submit Registration Form
+		Verify Page Should Contain Error message "CAPTCHA verification required"
+
+	Register User with Password Less Than Minimum Characters
+		Navigate To Register Page RegisterUrl
+		Input FirstName 	Valid_FirstName 
+		Input LastName 		Valid_LastName
+		Input Username 		Valid_Username
+		Input Email 		Valid_Email
+		Input Password 		Invalid_Password
+		Submit Registration Form
+		Verify Page Should Contain Error message "Minimum length is 8 characters"
+
+	Register User with Username Less than Minimum Characters 
+		Navigate To Register Page RegisterUrl
+		Input FirstName 	Valid_FirstName 
+		Input LastName 		Valid_LastName
+		Input Username 		Invalid_Username
+		Input Email 		Valid_Email
+		Input Password 		Valid_Password
+		Submit Registration Form
+		Verify Page Should Contain Error message "Username is too short (minimum is 2 characters)"
+
+	
+

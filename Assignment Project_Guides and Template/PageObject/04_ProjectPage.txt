@@ -1,0 +1,83 @@
+
+#******************** Settings ************************
+
+*** Settings ***
+
+Documentation	Testing the project page functionality. Project Test scenario. CRUD Operation: Create, Read, Update, Delete
+
+
+Pre Condition	 Open Browser, Login to your account, go to new project page
+Post Condition 	 Log out from your account, close all browsers
+Tags			 Project Page, TS-3-ProjectPage (e.g. For Agile Jira project management issue reference)
+
+#******************* Common Variables ********************
+
+*** Variables ***
+
+# NOTE: Please Remove your login credential before uploading Assignments
+
+HomePageUrl= https://gitlab.com/ 
+ProjectCreationURL= https://gitlab.com/projects/new
+Valid_ProjectName= TestProject 
+Invalid_ProjectName= TestProject
+Valid_ProjectNameTemplate= TemplateProject 
+UpdateProjectNameTemplate= NewTemplateProject
+ProjectName= First Project
+
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# Positive Test examples are below write test process steps for each below test case
+
+	Create blank project
+		Navigate to Create New Project page ProjectCreationURL 
+		Choose Create Blank Project option 
+		Input Project Name 	Valid_ProjectName
+		Submit Project Form 
+		Verify Page Should Contain Message "Project 'Valid_ProjectName' was successfully created."
+
+
+	Create template project 
+		Navigate to Create New Project page ProjectCreationURL 
+		Choose Create From Template option 
+		Choose Template Format			
+		Input Project Name Template 	Valid_ProjectNameTemplate		
+		Submit Project Form 
+		Verify Page Should Contain Message "The project was successfully imported."
+
+	Update name of template project
+		Navigate to Template Project page  HomePageUrl/Valid_ProjectNameTemplate
+		Choose Project Settings
+		Update Project Name Field  		   UpdateProjectNameTemplate
+		Press Save Changes button
+		Verify Page Should Contain Message "Project 'UpdateProjectNameTemplate' was successfully updated."
+
+	Delete template project
+		Navigate to Template Project page  HomePageUrl/Valid_ProjectNameTemplate
+		Choose Project Settings
+		Press Delete Project Button
+		Enter Project Name to confirm 
+		Press Yes, Delete Project button 	
+
+	Valide that message is showing Project 'First project ' was successfully created.
+		Navigate to Create New Project page 	ProjectCreationURL 
+		Choose Create New Project 
+		Input Project Name 						ProjectName
+		Submit Project Form 
+		Verify Page Contains Message ""Project 'ProjectName' was successfully created."
+
+
+
+# Negative Test examples are below write test process steps for each below test case
+
+	Create a blank project with the previous same name
+		Navigate to Create New Project page ProjectCreationURL 
+		Choose Create Blank Project option 
+		Input Project Name 					Invalid_ProjectName
+		Submit Project Form 
+		Verify Page Should Contain Message "The form contains the following errors: Project namespace name has already been take, Name has already been taken, Path has already been taken"
+
+
+

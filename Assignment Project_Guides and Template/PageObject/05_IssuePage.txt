@@ -1,0 +1,65 @@
+
+#******************** Settings ************************
+
+*** Settings ***
+Documentation	Issue Test scenario. CRUD Operation: Create, Read, Update, Delete
+
+Pre Condition	Open browser, login to account, project must be created by the user before 
+Post Condition	logout from the account, close all browsers
+Tags			Issue Page, TS-4-IssuePage (e.g. For Agile Jira project management issue reference)
+
+#******************* Common Variables ********************
+
+
+*** Variables ***
+
+# NOTE: Please Remove your login credential before uploading Assignments
+
+HomePageUrl= https://gitlab.com/
+Valid_IssueName= IssueName
+Valid_Username= Tester123
+Valid_UpdatedIssueName= UpdatedIssueName
+
+#******************** Test Cases *************************
+
+*** Test Case ***
+
+# Positive Test examples are below write test process steps for each below test case
+
+	Create issue
+		Navigate To Home Page  	HomePageUrl
+		Click Issues Button  
+		Select Project to Create Issue
+		Click New Issue in Project Button
+		Input Issue Title  		Valid_IssueName 
+		Click Create Issue Button 
+		Verify Page Should Contain "Issue created just now by "Valid_Username""
+
+ 	Update name of issue
+		Navigate To Home Page  	HomePageUrl
+		Choose Project
+		Click Issues button
+		Choose Issue
+		Click Edit button 
+		Update Issue Title 		Valid_UpdatedIssueName
+		Click Save Changes Button 
+		Verify Page Should contain message in Activity ""Valid_Username" changed title from "Valid_IssueName" to "Valid_UpdatedIssueName" just now"
+
+	Create second issue with privious updated name
+		Navigate To Home Page  	HomePageUrl
+		Choose Project
+		Click Issues Button
+		Click New Issue Button 
+		Input Issue Title  		Valid_UpdatedIssueName 
+		Click Create Issue Button 
+		Verify Page Should Contain "Issue created just now by "Valid_Username""
+
+    Delete first issue
+		Navigate To Home Page  	HomePageUrl
+		Choose Project
+		Click Issues Button
+		Choose the first issue 
+		Click Issue Actions 
+		Delete Issue 
+		Click Confirm Yes, Delete Issue 
+		Verify Page Should Contain "The issue was successfully deleted."
